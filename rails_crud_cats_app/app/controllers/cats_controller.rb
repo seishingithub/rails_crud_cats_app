@@ -26,6 +26,11 @@ class CatsController < ApplicationController
     redirect_to cat_path
   end
 
+  def destroy
+    Cat.delete(params[:id])
+    redirect_to cats_path
+  end
+
   private
 
   def secure_params

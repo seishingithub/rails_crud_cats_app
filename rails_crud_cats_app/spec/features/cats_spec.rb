@@ -39,4 +39,21 @@ feature 'Crudding cats' do
     expect(page).to have_content 'Spotty'
     expect(page).to have_content 'black'
   end
+
+  scenario 'User can delete cats' do
+    visit '/'
+    expect(page).to have_content 'Cats!'
+    click_on 'Cats!'
+    click_on 'Add Cat'
+    fill_in 'cat[name]', with: 'Spot'
+    fill_in 'cat[color]', with: 'orange'
+    click_on 'Create Cat'
+    visit '/cats'
+    click_on 'Spot'
+    expect(page).to have_content 'Spot'
+    expect(page).to have_content 'orange'
+    click_on 'Delete Cat'
+    expect(page).to have_no_content 'Spot'
+    expect(page).to have_no_content 'orange'
+  end
 end
