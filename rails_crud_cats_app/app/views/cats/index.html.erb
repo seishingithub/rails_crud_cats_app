@@ -5,7 +5,7 @@
   <th>Color</th>
   <% @cats.each do |cat| %>
   <tr>
-    <td><%= cat.name %></td>
+    <td><%= link_to cat.name, cat_path(cat.id) %></td>
     <td><%= cat.color %></td>
   </tr>
     <% end %>
