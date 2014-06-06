@@ -1,0 +1,12 @@
+<%= link_to "Add Cat", new_cat_path %>
+
+<table>
+  <th>Name</th>
+  <th>Color</th>
+  <% @cats.each do |cat| %>
+  <tr>
+    <td><%= cat.name %></td>
+    <td><%= cat.color %></td>
+  </tr>
+    <% end %>
+</table>
